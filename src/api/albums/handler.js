@@ -189,7 +189,7 @@ class AlbumsHandler {
       const { id: credentialId } = request.auth.credentials;
       const { id } = request.params;
 
-      const message = await this._albumService.addAlbumLikes(id, credentialId);
+      const message = await this._service.addAlbumLikes(id, credentialId);
 
       const response = h.response({
         status: 'success',
@@ -221,7 +221,7 @@ class AlbumsHandler {
     try {
       const { id } = request.params;
 
-      const { likes, isCache } = await this._albumService.getAlbumLikes(id);
+      const { likes, isCache } = await this._service.getAlbumLikes(id);
 
       return h
         .response({
